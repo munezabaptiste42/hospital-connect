@@ -37,7 +37,8 @@ interface Appointment {
 type Doctor = { id: string; full_name: string; specialization: string | null };
 type Patient = { id: string; full_name: string };
 
-const empty = { patient_id: "", doctor_id: "", appointment_date: "", appointment_time: "", status: "Pending" as const };
+type FormState = { patient_id: string; doctor_id: string; appointment_date: string; appointment_time: string; status: "Pending" | "Completed" | "Cancelled" };
+const empty: FormState = { patient_id: "", doctor_id: "", appointment_date: "", appointment_time: "", status: "Pending" };
 
 function AppointmentsPage() {
   const { role, user } = useAuth();
